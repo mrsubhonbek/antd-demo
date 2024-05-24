@@ -167,7 +167,7 @@ const TableExample: React.FC = () => (
       pagination={false}
       columns={columns}
       dataSource={data}
-      scroll={{ x: 1700 }}
+      scroll={{ x: 1500 }}
     />
 );
 
