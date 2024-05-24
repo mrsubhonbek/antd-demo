@@ -164,10 +164,11 @@ const TableExample: React.FC = () => (
       rowSelection={{
         type: 'checkbox',
       }}
+      sticky={true}
       pagination={false}
       columns={columns}
       dataSource={data}
-      scroll={{ x: 1500 }}
+      scroll={{ x: 1500, y: 300 }}
     />
 );
 
