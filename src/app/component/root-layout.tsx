@@ -23,7 +23,9 @@ const { Text } = Typography;
 const items: MenuProps['items'] = [
   {
     label: (
-      <a rel="noopener noreferrer" href="#">
+      <a
+        rel="noopener noreferrer"
+        href="#">
         1st menu item
       </a>
     ),
@@ -31,7 +33,9 @@ const items: MenuProps['items'] = [
   },
   {
     label: (
-      <a rel="noopener noreferrer" href="#">
+      <a
+        rel="noopener noreferrer"
+        href="#">
         2nd menu item
       </a>
     ),
@@ -76,7 +80,7 @@ const items2: MenuProps['items'] = [
 
 const RootLayout: React.FC<PropsWithChildren> = ({ children }) => {
   const {
-    token: { colorBgContainer, borderRadiusLG },
+    token: { colorBgContainer, borderRadiusLG, colorPrimary },
   } = theme.useToken();
   const [positionContent, setPositionContent] = useState(200);
   return (
@@ -100,7 +104,7 @@ const RootLayout: React.FC<PropsWithChildren> = ({ children }) => {
           mode="inline"
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}
-          style={{ height: '100%' }}
+          className="h-full"
           items={items2}
         />
       </Sider>
@@ -118,7 +122,7 @@ const RootLayout: React.FC<PropsWithChildren> = ({ children }) => {
             <Space className="bg-white pr-4">
               <Text>Subhonbek</Text>
               <Avatar
-                style={{ backgroundColor: '#87d068' }}
+                style={{ background: colorPrimary }}
                 icon={<UserOutlined />}
               />
             </Space>

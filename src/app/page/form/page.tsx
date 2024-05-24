@@ -1,13 +1,21 @@
-import { Col, Row } from "antd";
-import AnyForm from "./component/form";
+import { Col, Row, Space } from 'antd';
+import AnyForm from './component/form';
+import TableExample from './component/table';
 
 const PageForm: React.FC = () => {
   return (
-    <Row justify="center">
-      <Col span={24}>
-        <AnyForm />
-      </Col>
-    </Row>
+    <Space direction="vertical">
+      <Row justify="center">
+        <Col span={24}>
+          <AnyForm />
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          <TableExample />
+        </Col>
+      </Row>
+    </Space>
   );
 };
 
