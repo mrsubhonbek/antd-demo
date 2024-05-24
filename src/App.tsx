@@ -1,22 +1,12 @@
-import { Col, Row } from 'antd';
-import AnyForm from './app/page/form';
-import RootLayout from './app/component/root-layout';
+import Providers from './app/component/providers';
+import PageForm from './app/page/form/page';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <RootLayout>
-      <Row justify="center">
-        <Col
-          xs={24}
-          sm={20}
-          md={16}
-          lg={12}
-          xl={8}>
-          <AnyForm />
-        </Col>
-      </Row>
-    </RootLayout>
+    <Providers>
+      <PageForm />
+    </Providers>
   );
-}
+};
 
 export default App;

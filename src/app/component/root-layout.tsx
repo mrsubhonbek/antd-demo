@@ -1,50 +1,61 @@
 import React, { useState } from 'react';
 import {
-  UploadOutlined,
+  Avatar,
+  Breadcrumb,
+  Layout,
+  Menu,
+  MenuProps,
+  theme,
+} from 'antd';
+import {
+  LaptopOutlined,
+  NotificationOutlined,
+  HomeOutlined,
   UserOutlined,
-  VideoCameraOutlined,
 } from '@ant-design/icons';
-import { Layout, Menu, theme } from 'antd';
-
 const { Header, Content, Sider } = Layout;
 
-const items = [
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  UserOutlined,
-].map((icon, index) => ({
-  key: String(index + 1),
-  icon: React.createElement(icon),
-  label: `nav ${index + 1}`,
+const items1: MenuProps['items'] = ['1', '2', '3'].map((key) => ({
+  key,
+  label: `nav ${key}`,
 }));
 
-type Props = {
-  children?: React.ReactNode;
-};
+const items2: MenuProps['items'] = [
+  UserOutlined,
+  LaptopOutlined,
+  NotificationOutlined,
+].map((icon, index) => {
+  const key = String(index + 1);
 
-const RootLayout: React.FC<Props> = ({ children }) => {
+  return {
+    key: `sub${key}`,
+    icon: React.createElement(icon),
+    label: `subnav ${key}`,
+
+    children: new Array(4).fill(null).map((_, j) => {
+      const subKey = index * 4 + j + 1;
+      return {
+        key: subKey,
+        label: `option${subKey}`,
+      };
+    }),
+  };
+});
+
+const RootLayout: React.FC<PropsWithChildren> = ({ children }) => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-  const [positionContent, setPositionContent] = useState(0);
+  const [positionContent, setPositionContent] = useState(200);
   return (
-    <Layout style={{ height: '100vh' }}>
+    <Layout className="min-h-screen">
       <Sider
-        style={{
-          height: '100vh',
-          position: 'fixed',
-          left: 0,
-          top: 0,
-          bottom: 0,
-          zIndex: 1,
-        }}
+        className="!fixed left-0 top-0 bottom-0 z-10 min-h-screen"
         breakpoint="lg"
-        defaultCollapsed
         collapsedWidth="0"
         onBreakpoint={(broken) => {
           console.log(broken);
-          setPositionContent(200);
+          if (!broken) setPositionContent(200);
         }}
         theme="light"
         onCollapse={(collapsed, type) => {
@@ -52,25 +63,56 @@ const RootLayout: React.FC<Props> = ({ children }) => {
           if (!collapsed && type !== 'clickTrigger') setPositionContent(200);
           else setPositionContent(0);
         }}>
-        <div className="demo-logo-vertical" />
+        <div className="demo-logo-vertical pt-16" />
         <Menu
-          style={{ height: '100%' }}
           mode="inline"
-          defaultSelectedKeys={['4']}
-          items={items}
+          defaultSelectedKeys={['1']}
+          defaultOpenKeys={['sub1']}
+          style={{ height: '100%' }}
+          items={items2}
         />
-        <div />
       </Sider>
       <Layout style={{ marginLeft: positionContent }}>
-        <Header style={{ padding: 0, background: colorBgContainer }} />
-        <Content style={{ margin: '24px 16px 0' }}>
+        <Header
+          className={`p-0 bg-[${colorBgContainer}] flex justify-between items-center`}>
+          <Menu
+            theme="light"
+            mode="horizontal"
+            defaultSelectedKeys={['2']}
+            items={items1}
+            style={{ flex: 1, minWidth: 0 }}
+          />
+          <div className="bg-white pr-4">
+            <Avatar
+              style={{ backgroundColor: '#87d068' }}
+              icon={<UserOutlined />}
+            />
+          </div>
+        </Header>
+        <Breadcrumb
+          className="m-4 mb-0"
+          items={[
+            {
+              path: 'home',
+              title: <HomeOutlined />,
+            },
+            {
+              path: 'form',
+              title: (
+                <>
+                  <UserOutlined />
+                  <span>Application List</span>
+                </>
+              ),
+            },
+            {
+              title: 'Application',
+            },
+          ]}
+        />
+        <Content className="mt-6 mx-4">
           <div
-            style={{
-              padding: 24,
-              minHeight: '100%',
-              background: colorBgContainer,
-              borderRadius: borderRadiusLG,
-            }}>
+            className={`p-6 min-h-full bg-white bg-[${colorBgContainer}] rounded-[${borderRadiusLG}px]`}>
             {children}
           </div>
         </Content>
