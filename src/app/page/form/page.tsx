@@ -10,8 +10,8 @@ const PageForm: React.FC = () => {
           <AnyForm />
         </Col>
       </Row>
-      <Row className="">
-        <Col className=" max-w-full">
+      <Row className="max-w-6xl">
+        <Col>
           <TableExample />
         </Col>
       </Row>
