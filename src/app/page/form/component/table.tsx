@@ -160,15 +160,15 @@ const data: DataType[] = [
 ];
 
 const TableExample: React.FC = () => (
-  <Table
-    rowSelection={{
-      type: 'checkbox',
-    }}
-    pagination={false}
-    columns={columns}
-    dataSource={data}
-    scroll={{ x: 500 }}
-  />
+    <Table
+      rowSelection={{
+        type: 'checkbox',
+      }}
+      pagination={false}
+      columns={columns}
+      dataSource={data}
+      scroll={{ x: 1700 }}
+    />
 );
 
 export default TableExample;
