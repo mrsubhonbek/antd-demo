@@ -110,7 +110,7 @@ const RootLayout: React.FC<PropsWithChildren> = ({ children }) => {
       </Sider>
       <Layout style={{ marginLeft: positionContent }}>
         <Header
-          className={`p-0 bg-[${colorBgContainer}] flex justify-between items-center`}>
+          className={`p-0 bg-[${colorBgContainer}] flex justify-between items-center sticky top-1 z-10 w-full`}>
           <Menu
             theme="light"
             mode="horizontal"
