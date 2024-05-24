@@ -60,6 +60,7 @@ const AnyForm: React.FC = () => (
         xs={24}
         md={12}>
         <Form.Item
+          rules={[{ required: true, message: 'Please input!' }]}
           label="Checkbox"
           name="checkbox"
           valuePropName="checked">
@@ -71,6 +72,7 @@ const AnyForm: React.FC = () => (
         xs={24}
         md={12}>
         <Form.Item
+          rules={[{ required: true, message: 'Please input!' }]}
           name="radio"
           label="Radio">
           <Radio.Group>
@@ -83,6 +85,7 @@ const AnyForm: React.FC = () => (
         xs={24}
         md={12}>
         <Form.Item
+          rules={[{ required: true, message: 'Please input!' }]}
           label="Input"
           name="input">
           <Input />
@@ -92,6 +95,7 @@ const AnyForm: React.FC = () => (
         xs={24}
         md={12}>
         <Form.Item
+          rules={[{ required: true, message: 'Please input!' }]}
           label="Select"
           name="select">
           <Select>
@@ -103,6 +107,7 @@ const AnyForm: React.FC = () => (
         xs={24}
         md={12}>
         <Form.Item
+          rules={[{ required: true, message: 'Please input!' }]}
           label="TreeSelect"
           name="treeSelect">
           <TreeSelect
@@ -120,6 +125,7 @@ const AnyForm: React.FC = () => (
         xs={24}
         md={12}>
         <Form.Item
+          rules={[{ required: true, message: 'Please input!' }]}
           label="Cascader"
           name="cascader">
           <Cascader
@@ -142,6 +148,7 @@ const AnyForm: React.FC = () => (
         xs={24}
         md={12}>
         <Form.Item
+          rules={[{ required: true, message: 'Please input!' }]}
           label="DatePicker"
           name="datePicker">
           <DatePicker />
@@ -151,6 +158,7 @@ const AnyForm: React.FC = () => (
         xs={24}
         md={12}>
         <Form.Item
+          rules={[{ required: true, message: 'Please input!' }]}
           label="RangePicker"
           name="rangePicker">
           <RangePicker />
@@ -161,6 +169,7 @@ const AnyForm: React.FC = () => (
         xs={24}
         md={12}>
         <Form.Item
+          rules={[{ required: true, message: 'Please input!' }]}
           name="upload"
           label="Upload"
           valuePropName="fileList"
@@ -181,6 +190,7 @@ const AnyForm: React.FC = () => (
         xs={24}
         md={12}>
         <Form.Item
+          rules={[{ required: true, message: 'Please input!' }]}
           label="TextArea"
           name="textArea">
           <TextArea rows={4} />
@@ -190,6 +200,7 @@ const AnyForm: React.FC = () => (
         xs={24}
         md={12}>
         <Form.Item
+          rules={[{ required: true, message: 'Please input!' }]}
           label="InputNumber"
           name="number">
           <InputNumber />
@@ -199,6 +210,7 @@ const AnyForm: React.FC = () => (
         xs={24}
         md={12}>
         <Form.Item
+          rules={[{ required: true, message: 'Please input!' }]}
           label="Switch"
           name="switch"
           valuePropName="checked">
@@ -210,6 +222,7 @@ const AnyForm: React.FC = () => (
         xs={24}
         md={12}>
         <Form.Item
+          rules={[{ required: true, message: 'Please input!' }]}
           label="Slider"
           name="slider">
           <Slider />
@@ -219,16 +232,16 @@ const AnyForm: React.FC = () => (
         xs={24}
         md={12}>
         <Form.Item
+          rules={[{ required: true, message: 'Please input!' }]}
           label="ColorPicker"
           name="colorPicker">
           <ColorPicker />
         </Form.Item>
       </Col>
-
     </Row>
     <Row justify="end">
       <Col>
-        <Form.Item>
+        <Form.Item rules={[{ required: true, message: 'Please input!' }]}>
           <Button
             type="primary"
             htmlType="submit">

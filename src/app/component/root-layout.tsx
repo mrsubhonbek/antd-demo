@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import {
   Avatar,
   Breadcrumb,
+  Dropdown,
   Layout,
   Menu,
   MenuProps,
+  Space,
   theme,
+  Typography,
 } from 'antd';
 import {
   LaptopOutlined,
@@ -13,7 +16,36 @@ import {
   HomeOutlined,
   UserOutlined,
 } from '@ant-design/icons';
+
 const { Header, Content, Sider } = Layout;
+const { Text } = Typography;
+
+const items: MenuProps['items'] = [
+  {
+    label: (
+      <a rel="noopener noreferrer" href="#">
+        1st menu item
+      </a>
+    ),
+    key: '0',
+  },
+  {
+    label: (
+      <a rel="noopener noreferrer" href="#">
+        2nd menu item
+      </a>
+    ),
+    key: '1',
+  },
+  {
+    type: 'divider',
+  },
+  {
+    label: '3rd menu item（disabled）',
+    key: '3',
+    disabled: true,
+  },
+];
 
 const items1: MenuProps['items'] = ['1', '2', '3'].map((key) => ({
   key,
@@ -80,14 +112,17 @@ const RootLayout: React.FC<PropsWithChildren> = ({ children }) => {
             mode="horizontal"
             defaultSelectedKeys={['2']}
             items={items1}
-            style={{ flex: 1, minWidth: 0 }}
+            className="flex-1 min-w-0"
           />
-          <div className="bg-white pr-4">
-            <Avatar
-              style={{ backgroundColor: '#87d068' }}
-              icon={<UserOutlined />}
-            />
-          </div>
+          <Dropdown menu={{ items }}>
+            <Space className="bg-white pr-4">
+              <Text>Subhonbek</Text>
+              <Avatar
+                style={{ backgroundColor: '#87d068' }}
+                icon={<UserOutlined />}
+              />
+            </Space>
+          </Dropdown>
         </Header>
         <Breadcrumb
           className="m-4 mb-0"
